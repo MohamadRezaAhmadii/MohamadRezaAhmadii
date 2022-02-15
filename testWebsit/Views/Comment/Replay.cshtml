@@ -1,0 +1,49 @@
+﻿@model testWebsit.Models.Comments
+@{
+    ViewData["Tittel"] = "Replay";
+}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<h1>Replay</h1>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="Replay">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Rating" />
+            <div class="form-group">
+                <label asp-for="Tittel" class="control-label"></label>
+                <input asp-for="Tittel" class="form-control" />
+                <span asp-validation-for="Tittel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReplayText" class="control-label"></label>
+                <textarea asp-for="ReplayText" class="control-label"></textarea>
+                <span asp-validation-for="ReplayText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to list</a>
+</div>
+@section Scripts{
+    <script>
+    $(document).ready(function () {
+
+        $('#ReplayText').summernote();
+    });
+    </script>
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

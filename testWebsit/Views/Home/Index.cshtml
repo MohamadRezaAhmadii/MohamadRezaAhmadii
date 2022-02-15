@@ -1,0 +1,36 @@
+﻿@model IEnumerable<testWebsit.Models.Comments>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tittel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReplayText)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(itemModel => item.Tittel)
+                </td>
+                <td>
+                    @Html.DisplayFor(itemModel => item.Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(itemModel => item.ReplayText)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
